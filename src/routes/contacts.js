@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
   getContactsController,
   getContactByIdController,
+  postContactController,
   patchContactController,
   deleteContactController
 } from '../controllers/contacts.js';
@@ -16,8 +17,10 @@ router.get('/', ctrlWrapper(getContactsController));
 
 router.get('/:contactId', isValidId, ctrlWrapper(getContactByIdController));
 
-router.patch('/:contactId', ctrlWrapper(patchContactController));
+router.post('/', validateBody(createContactSchema), ctrlWrapper(postContactController));
 
-router.delete('/:contactId', ctrlWrapper(deleteContactController));
+router.patch('/:contactId', validateBody(updateContactSchema), ctrlWrapper(patchContactController));
+
+router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
 
 export default router;
