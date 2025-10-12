@@ -6,6 +6,9 @@ export const getAllContacts = async () =>
 export const getContactById = async (id) => 
   await Contact.findById(id).lean();
 
+export const createContact = async (contactData) =>
+  await Contact.create(contactData);
+
 export const updateContactById = async (contactId, updateData) => 
   await Contact.findByIdAndUpdate(contactId, updateData, { new: true });
 
