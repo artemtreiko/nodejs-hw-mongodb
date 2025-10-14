@@ -1,5 +1,4 @@
 import { Schema, model } from 'mongoose';
-import { ROLES } from '../../constants';
 
 const usersSchema = new Schema(
   {
