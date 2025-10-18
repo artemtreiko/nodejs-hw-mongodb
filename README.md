@@ -1,2 +1,4 @@
-- Гілка hw6-email-and-images
+- Гілка hw7-swagger
 
+Start:
+npx redocly preview
