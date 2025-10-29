@@ -21,7 +21,7 @@ requestBody:
             example: John Doe
           phoneNumber:
             type: string
-            example: +380971234567
+            example: '+380971234567'
           email:
             type: string
             example: john@example.com
@@ -55,7 +55,7 @@ responses:
               type: string
               example: Successfully created a contact!
             data:
-              $ref: '../../components/schemas/contact.yaml#/Contact'
+              $ref: '../../components/schemas/contact.yaml'
   '400':
     description: Invalid input data
     content:
@@ -88,3 +88,19 @@ responses:
             message:
               type: string
               example: Unauthorized
+  '500':
+    description: Internal server error
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+          properties:
+            status:
+              type: integer
+              example: 500
+            message:
+              type: string
+              example: Failed to create contact due to server error

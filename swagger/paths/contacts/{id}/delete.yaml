@@ -7,7 +7,7 @@ security:
   - bearerAuth: []
 parameters:
   - in: path
-    name: contactId
+    name: id
     required: true
     description: Unique identifier of the contact to delete
     schema:
@@ -49,3 +49,19 @@ responses:
             message:
               type: string
               example: Unauthorized
+  '500':
+    description: Internal server error
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+          properties:
+            status:
+              type: integer
+              example: 500
+            message:
+              type: string
+              example: Failed to delete contact due to server error

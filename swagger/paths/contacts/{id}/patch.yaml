@@ -7,7 +7,7 @@ security:
   - bearerAuth: []
 parameters:
   - in: path
-    name: contactId
+    name: id
     required: true
     description: Unique identifier of the contact to update
     schema:
@@ -25,7 +25,7 @@ requestBody:
             example: John Doe
           phoneNumber:
             type: string
-            example: +380971234567
+            example: '+380971234567'
           email:
             type: string
             example: john@example.com
@@ -59,7 +59,7 @@ responses:
               type: string
               example: Successfully patched a contact!
             data:
-              $ref: '../../../components/schemas/contact.yaml#/Contact'
+              $ref: '../../../components/schemas/contact.yaml'
   '404':
     description: Contact not found
     content:

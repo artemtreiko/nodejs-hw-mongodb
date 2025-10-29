@@ -67,4 +67,43 @@ responses:
             data:
               type: array
               items:
-                $ref: ../../components/schemas/contact.yaml#/Contact
+                $ref: ../../components/schemas/contact.yaml
+  '401':
+    description: Unauthorized – missing or invalid token
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 401
+            message:
+              type: string
+              example: Unauthorized access
+  '404':
+    description: Contacts not found
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 404
+            message:
+              type: string
+              example: No contacts found for this user
+  '500':
+    description: Internal server error
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 500
+            message:
+              type: string
+              example: Something went wrong
